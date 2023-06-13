@@ -16,8 +16,8 @@ namespace labgit
             var text = inFile.ReadToEnd();
             string[] numbers = text.Split(' ');
 
-            List<int> nums = new List<int>();
-            List<int> nums2 = new List<int>();
+            List<double> nums = new List<double>();
+            List<double> nums2 = new List<double>();
 
             foreach (var num in numbers)
             {
@@ -31,6 +31,7 @@ namespace labgit
                 }
             }
 
+
             for (int i = 0; i < nums.Count; i++)
             {
                 if (nums[i] > 0 && nums[i] % 2 == 0)
@@ -39,12 +40,26 @@ namespace labgit
                 }
             }
 
+            int count = 0;
             foreach (var num in nums2)
             {
+                if (Convert.ToInt32(Math.Sqrt(num)) * Convert.ToInt32(Math.Sqrt(num)) == num)
+                {
+                    count++;
+                    Console.WriteLine(num + " - квадрат");
+                }
                 Console.WriteLine(num);
             }
 
+            Console.WriteLine("Кол-во квадратов: " + count);
+
+
+
+
+
+
             Console.ReadKey();
         }
+
     }
 }
